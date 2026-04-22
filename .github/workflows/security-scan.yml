@@ -1,0 +1,23 @@
+name: Security Gate
+
+on: [push]
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Bandit
+        run: pip install bandit
+
+      - name: Run Bandit Security Scan
+        # The '-lll' flag tells Bandit to only report High/Medium/Low issues.
+        # This will cause the pipeline to fail if vulnerabilities are found.
+        run: bandit -r . -lll
