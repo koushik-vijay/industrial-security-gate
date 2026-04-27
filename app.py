@@ -3,7 +3,7 @@
 # It contains a deliberate vulnerability for the security scanner to catch.
 # This uses a hardcoded password, which Bandit *definitely* catches.
 import os
-password = "admin12312345"
+password = "admin145"
 
 def process_data(user_input):
     # SECURITY VULNERABILITY: eval() is dangerous because it executes arbitrary code.
