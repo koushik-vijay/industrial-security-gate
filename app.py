@@ -1,6 +1,9 @@
 # app.py
 # This is a sample industrial data processing script
 # It contains a deliberate vulnerability for the security scanner to catch.
+# This uses a hardcoded password, which Bandit *definitely* catches.
+import os
+password = "admin123123"
 
 def process_data(user_input):
     # SECURITY VULNERABILITY: eval() is dangerous because it executes arbitrary code.
